@@ -1,10 +1,17 @@
 /* eslint-disable no-console */
+import express from 'express';
+import constants from './config/constant';
+import './config/database';
+import middlewareConfig from './config/middleware';
 
-const express = require('express');
-const constants = require('./config/constant');
 const app = express();
 
-const PORT = process.env.PORT || 3000;
+middlewareConfig(app);
+
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+
 
 app.listen(constants.PORT, err => {
     if (err) {
@@ -15,7 +22,7 @@ app.listen(constants.PORT, err => {
         ---
         Running on ${process.env.NODE_ENV}
         ---
-        Make something great!!!
+        Make something great
         `);
     }
 });
