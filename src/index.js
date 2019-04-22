@@ -4,6 +4,8 @@ import constants from './config/constant';
 import './config/database';
 import middlewareConfig from './config/middleware';
 
+import apiRoutes from './modules';
+
 const app = express();
 
 middlewareConfig(app);
@@ -11,6 +13,8 @@ middlewareConfig(app);
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
+
+apiRoutes(app);
 
 
 app.listen(constants.PORT, err => {

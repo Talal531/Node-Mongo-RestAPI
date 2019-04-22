@@ -2,6 +2,7 @@ import mongoose from 'mongoose';
 import constants from './constant';
 
 mongoose.Promise = global.Promise;
+mongoose.set('useCreateIndex', true)
 
 try {
   mongoose.connect(constants.MONGO_URL, { useNewUrlParser: true });
